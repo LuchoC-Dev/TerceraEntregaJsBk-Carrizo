@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
 
-class Daos {
+class Dao {
   constructor(model) {
     if (!(model instanceof Model)) {
       throw new Error('model expect a Model instance');
@@ -17,4 +17,4 @@ class Daos {
   async delete() {}
 }
 
-export default Daos;
+export default Dao;
