@@ -5,6 +5,7 @@ import { useHandlebars } from './interfases/useHandlebars.Interfases.js';
 
 import MongoDb from './MongoDb.js';
 import Sockets from './socket/Sockets.manager.js';
+import productsRouter from '../routes/api/products/products.routes.js';
 
 class App {
   constructor() {
@@ -26,7 +27,9 @@ class App {
     });
   }
 
-  _routesInit() {}
+  _routesInit() {
+    this.app.use('/', productsRouter);
+  }
 
   _middlewaresInit() {
     this.app.use(express.json());

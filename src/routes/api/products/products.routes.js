@@ -9,3 +9,5 @@ productsRouter.get(path, ProductsMdw.chechQuerys, ProductsMdw.chechParams, Produ
 productsRouter.post(path, ProductsController);
 productsRouter.put(path, ProductsController);
 productsRouter.delete(path, ProductsController);
+
+export default productsRouter;
