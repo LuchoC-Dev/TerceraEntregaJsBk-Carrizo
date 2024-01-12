@@ -17,6 +17,7 @@ class App {
     this._handlebarsInit();
     await this._dbInit();
     this._socketsInit();
+    this._routesInit();
   }
 
   _listenInit() {
@@ -24,6 +25,8 @@ class App {
       console.log(`Server started on http://localhost:${8008}`);
     });
   }
+
+  _routesInit() {}
 
   _middlewaresInit() {
     this.app.use(express.json());
