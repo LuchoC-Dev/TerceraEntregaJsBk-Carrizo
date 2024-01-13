@@ -10,3 +10,5 @@ class CrudMessages {
     };
   }
 }
+
+export default CrudMessages;

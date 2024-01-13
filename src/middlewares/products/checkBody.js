@@ -1,6 +1,6 @@
 import Errors from '../Errors';
 
-export function checkQuerys(req, res, next) {
+export function checkBody(req, res, next) {
   try {
     checkVar1();
     checkVar2();

@@ -1,6 +1,6 @@
 import Errors from '../Errors';
 
-export function chechParams(req, res, next) {
+export function checkParams(req, res, next) {
   try {
     checkVar1();
     checkVar2();
