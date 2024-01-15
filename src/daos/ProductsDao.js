@@ -12,6 +12,9 @@ export default class ProductsDao {
   static async delete(filter, options) {
     return await productModel.deleteMany(filter, options);
   }
+  static async readWithPaginate(querys, results, options) {
+    return await productModel.find(querys, results, options);
+  }
   static async getAll() {
     return await productModel.read({});
   }

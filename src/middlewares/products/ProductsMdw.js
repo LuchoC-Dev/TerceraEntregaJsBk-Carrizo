@@ -1,9 +1,10 @@
-import { checkParams } from './checkParams';
-import { checkQuerys } from './checkQuerys';
-import { checkBody } from './checkBody';
+import checkBody from './check/body.check';
+import checkParams from './check/params.check';
+import checkQuery from './check/query.check';
+
 class ProductsMdw {
-  static chechQuerys(req, res, next) {
-    checkQuerys(req, res, next);
+  static chechQuery(req, res, next) {
+    checkQuery(req, res, next);
   }
 
   static chechParams(req, res, next) {

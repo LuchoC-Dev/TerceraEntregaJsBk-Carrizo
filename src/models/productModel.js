@@ -10,6 +10,31 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  price: {
+    type: Number,
+    required: true,
+  },
+  thumbnail: {
+    type: Array,
+    required: true,
+  },
+  code: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  stock: {
+    type: Number,
+    required: true,
+  },
+  status: {
+    type: Boolean,
+    default: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
 });
 
 productSchema.plugin(mongoosePaginate);

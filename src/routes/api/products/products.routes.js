@@ -5,21 +5,23 @@ import ProductsController from './Products.controller.js';
 const productsRouter = Router();
 const path = '/api/products/';
 
-productsRouter.get(path + ':id', ProductsMdw.chechQuerys, ProductsMdw.chechParams, ProductsController.get);
+productsRouter.get(path + ':id', ProductsMdw.chechParams, ProductsMdw.chechQuery, ProductsController.get);
 productsRouter.post(
   path + ':id',
-  ProductsMdw.chechQuerys,
+
   ProductsMdw.chechParams,
+  ProductsMdw.chechQuery,
   ProductsMdw.checkBody,
   ProductsController.post,
 );
 productsRouter.put(
   path + ':id',
-  ProductsMdw.chechQuerys,
+
   ProductsMdw.chechParams,
+  ProductsMdw.chechQuery,
   ProductsMdw.checkBody,
   ProductsController.put,
 );
-productsRouter.delete(path + ':id', ProductsMdw.chechQuerys, ProductsMdw.chechParams, ProductsController.delete);
+productsRouter.delete(path + ':id', ProductsMdw.chechParams, ProductsMdw.chechQuery, ProductsController.delete);
 
 export default productsRouter;
