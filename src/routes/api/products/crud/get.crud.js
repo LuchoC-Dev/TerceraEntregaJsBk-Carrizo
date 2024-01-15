@@ -1,3 +1,6 @@
+import Parser from '../../../../class/Parser';
+import ProductsDao from '../../../../daos/ProductsDao';
+
 async function getAll(req, res) {
   try {
     const response = await ProductsDao.getAll();
@@ -18,7 +21,13 @@ async function getById(req, res) {
 }
 
 async function getByConditions(req, res) {
-  res.json(CrudMessages.error());
+  try {
+    const { limit, page, sort, query } = Parser.parseQuery(req.query);
+    const response = await ProductsDao.readWithPaginate(query, { limit: limit, page: page, sort: sort });
+    res.json(CrudMessages.make(response));
+  } catch (error) {
+    res.json(CrudMessages.error());
+  }
 }
 
 export { getAll, getByConditions, getById };

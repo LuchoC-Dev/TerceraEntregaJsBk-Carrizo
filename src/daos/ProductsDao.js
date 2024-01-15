@@ -1,5 +1,5 @@
 import productModel from '../models/productModel';
-export default class ProductsDao {
+class ProductsDao {
   static async create(...docs) {
     return await productModel.create(docs);
   }
@@ -12,8 +12,8 @@ export default class ProductsDao {
   static async delete(filter, options) {
     return await productModel.deleteMany(filter, options);
   }
-  static async readWithPaginate(querys, results, options) {
-    return await productModel.find(querys, results, options);
+  static async readWithPaginate(querys, filterOptions, callback) {
+    return await productModel.paginate(querys, filterOptions, callback);
   }
   static async getAll() {
     return await productModel.read({});
@@ -25,3 +25,5 @@ export default class ProductsDao {
     return await productModel.delete({});
   }
 }
+
+export default ProductsDao;
