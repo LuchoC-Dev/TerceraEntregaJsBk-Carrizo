@@ -15,7 +15,7 @@ class CrudMessages {
   }
   static error(responseJson) {
     return {
-      status: 'Unimplements Methods',
+      status: 'Unimplements Method',
     };
   }
 }

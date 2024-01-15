@@ -1,5 +1,7 @@
 class Errors {
-  static json() {}
+  static json() {
+    return { status: 'Unimplements method' };
+  }
 }
 
 export default Errors;

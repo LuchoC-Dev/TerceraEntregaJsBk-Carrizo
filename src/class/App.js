@@ -6,6 +6,7 @@ import { useHandlebars } from './interfases/useHandlebars.Interfases.js';
 import MongoDb from './MongoDb.js';
 import Sockets from './socket/Sockets.manager.js';
 import productsRouter from '../routes/api/products/products.routes.js';
+import { PORT } from '../utils/env.js';
 
 class App {
   constructor() {
@@ -19,11 +20,12 @@ class App {
     await this._dbInit();
     this._socketsInit();
     this._routesInit();
+    this.app;
   }
 
   _listenInit() {
-    this.listen = this.app.listen(8080, () => {
-      console.log(`Server started on http://localhost:${8008}`);
+    this.listen = this.app.listen(PORT, () => {
+      console.log(`Server started on http://localhost:${PORT}`);
     });
   }
 

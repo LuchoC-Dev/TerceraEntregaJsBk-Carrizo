@@ -1,4 +1,4 @@
-import Errors from '../Errors';
+import Errors from '../../Errors.js';
 
 function checkBody(req, res, next) {
   try {

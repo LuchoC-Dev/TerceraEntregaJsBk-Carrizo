@@ -1,3 +1,5 @@
+import ProductsDao from '../../../../daos/ProductsDao.js';
+
 async function update(req, res) {
   try {
     const { id } = req.params;

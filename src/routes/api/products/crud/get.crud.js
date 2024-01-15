@@ -1,5 +1,5 @@
-import Parser from '../../../../class/Parser';
-import ProductsDao from '../../../../daos/ProductsDao';
+import Parser from '../../../../class/Parser.js';
+import ProductsDao from '../../../../daos/ProductsDao.js';
 
 async function getAll(req, res) {
   try {

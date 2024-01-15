@@ -1,4 +1,4 @@
-import productModel from '../models/productModel';
+import productModel from '../models/productModel.js';
 class ProductsDao {
   static async create(...docs) {
     return await productModel.create(docs);

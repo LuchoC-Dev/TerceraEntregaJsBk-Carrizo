@@ -6,7 +6,7 @@ const environment = async () => {
     await myApp.init();
     console.log(`Environment started successfully`);
   } catch (error) {
-    console.error(`Error in environment start:\n${error}`);
+    console.error(`    Error in environment start:\n${error}`);
   }
 };
 
