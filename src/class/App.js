@@ -15,6 +15,7 @@ import registerRouter from '../routes/register/register.routes.js';
 import loginRouter from '../routes/login/login.routes.js';
 import rootRouter from '../routes/root/root.routes.js';
 import productsViewRouter from '../routes/products/products.routes.js';
+import usersRouter from '../routes/api/users/user.routes.js';
 
 class App {
   constructor() {
@@ -40,6 +41,7 @@ class App {
   _routesInit() {
     this.app.use('/', rootRouter);
     this.app.use('/', productsRouter);
+    this.app.use('/', usersRouter);
     this.app.use('/', cartRouter);
     this.app.use('/', loginRouter);
     this.app.use('/', registerRouter);
