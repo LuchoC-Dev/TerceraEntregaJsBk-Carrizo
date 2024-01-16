@@ -14,6 +14,7 @@ usersRouter.post(path + 'register', async (req, res) => {
     return res.status(401).json({ status: 'error', error: 'User already exist' });
   }
   const result = await UserDao.create({ first_name, last_name, email, age, password });
+
   res.json(result);
 });
 
@@ -27,8 +28,14 @@ usersRouter.post(path + 'login', async (req, res) => {
     name: `${result.first_name} ${result.last_name}`,
     email: result.email,
     age: result.age,
+    rol: isAdmin(result.email, result.password) ? 'admin' : 'user',
   };
   res.json(req.session.user);
 });
+
+function isAdmin(email, password) {
+  const regAdmin = /^admin/;
+  return regAdmin.test(email) && regAdmin.test(password);
+}
 
 export default usersRouter;
