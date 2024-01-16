@@ -19,7 +19,7 @@ async function deleteAll(req, res) {
       throw new Error('Status undefinded');
     }
     const response = await ProductsDao.deleteAll();
-    res.json(CrudMessages.make(response));
+    res.json(response);
   } catch (error) {
     res.json(CrudMessages.error(error));
   }

@@ -5,7 +5,7 @@ async function add(req, res) {
   try {
     const { title, description, price, thumbnail, code, stock, category } = req.body;
     const response = await ProductsDao.create({ title, description, price, thumbnail, code, stock, category });
-    res.json(CrudMessages.make(response));
+    res.json(response);
   } catch (error) {
     res.json(CrudMessages.error(error));
   }

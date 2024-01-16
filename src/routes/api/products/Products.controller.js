@@ -15,7 +15,7 @@ class ProductsController {
     } else if (hasCondition) {
       getByConditions(req, res);
     } else {
-      res.json(CrudMessages.error({ error: 'ilegal action' }));
+      res.json(CrudMessages.error('ilegal action'));
     }
   }
 
@@ -24,7 +24,7 @@ class ProductsController {
     if (isFull) {
       add(req, res);
     } else {
-      res.json(CrudMessages.error({ error: 'ilegal action' }));
+      res.json(CrudMessages.error('ilegal action'));
     }
   }
 
@@ -33,7 +33,7 @@ class ProductsController {
     if (id) {
       update(req, res);
     } else {
-      res.json(CrudMessages.error({ error: 'ilegal action' }));
+      res.json(CrudMessages.error('ilegal action'));
     }
   }
 
@@ -45,7 +45,7 @@ class ProductsController {
     } else if (clear === 'true') {
       deleteAll(req, res);
     } else {
-      res.json(CrudMessages.error({ error: 'ilegal action' }));
+      res.json(CrudMessages.error('ilegal action'));
     }
   }
 }

@@ -1,6 +1,6 @@
 class Errors {
-  static json(responseJson) {
-    return { status: 'Unimplements method', error: responseJson };
+  static json(error) {
+    return { status: 'Unimplements method', error: error };
   }
 }
 

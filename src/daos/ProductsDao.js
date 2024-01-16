@@ -16,7 +16,7 @@ class ProductsDao {
     return await productModel.paginate(querys, filterOptions, callback);
   }
   static async getAll() {
-    return await productModel.read({});
+    return await this.read({});
   }
   static async updateOne(filter, update, options) {
     return await productModel.updateOne(filter, update, options);

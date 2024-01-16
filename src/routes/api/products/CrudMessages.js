@@ -8,15 +8,15 @@ class CrudMessages {
       page: responseJson.page,
       hasPrevPage: responseJson.hasPrevPage ?? null,
       hasNextPage: responseJson.hasNextPage ?? null,
-      prevLink: responseJson.prevLink,
-      nextLink: responseJson.nextLink,
+      prevLink: responseJson.prevLink ?? null,
+      nextLink: responseJson.nextLink ?? null,
       payload: responseJson.docs,
     };
   }
-  static error(responseJson) {
+  static error(error) {
     return {
       status: 'Unimplements Method',
-      error: responseJson,
+      error: error,
     };
   }
 }

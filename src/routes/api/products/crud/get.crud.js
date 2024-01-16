@@ -6,7 +6,7 @@ import CrudMessages from '../CrudMessages.js';
 async function getAll(req, res) {
   try {
     const response = await ProductsDao.getAll();
-    res.json(CrudMessages.make(response));
+    res.json(response);
   } catch (error) {
     res.json(CrudMessages.error(error));
   }
@@ -16,7 +16,7 @@ async function getById(req, res) {
   try {
     const { id } = req.params;
     const response = await ProductsDao.read({ _id: id });
-    res.json(CrudMessages.make(response));
+    res.json(response);
   } catch (error) {
     res.json(CrudMessages.error(error));
   }
