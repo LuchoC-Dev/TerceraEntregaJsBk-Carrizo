@@ -42,7 +42,7 @@ class ProductsController {
     const { clear } = req.query;
     if (id) {
       deleteById(req, res);
-    } else if (clear === 'true') {
+    } else if (clear) {
       deleteAll(req, res);
     } else {
       res.json(CrudMessages.error('ilegal action'));

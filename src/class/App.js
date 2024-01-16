@@ -7,6 +7,7 @@ import MongoDb from './MongoDb.js';
 import Sockets from './socket/Sockets.manager.js';
 import productsRouter from '../routes/api/products/products.routes.js';
 import { PORT } from '../utils/env.js';
+import cartRouter from '../routes/api/carts/carts.routes.js';
 
 class App {
   constructor() {
@@ -30,6 +31,7 @@ class App {
 
   _routesInit() {
     this.app.use('/', productsRouter);
+    this.app.use('/', cartRouter);
   }
 
   _middlewaresInit() {

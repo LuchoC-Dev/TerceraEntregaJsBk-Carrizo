@@ -4,9 +4,8 @@ import CrudMessages from '../CrudMessages.js';
 async function deleteById(req, res) {
   try {
     const { id } = req.params;
-    const { data } = req.body;
-    const response = await ProductsDao.delete({ _id: id }, data);
-    res.json(CrudMessages.make(response));
+    const response = await ProductsDao.delete({ _id: id });
+    res.json(response);
   } catch (error) {
     res.json(CrudMessages.error(error));
   }
@@ -14,14 +13,14 @@ async function deleteById(req, res) {
 
 async function deleteAll(req, res) {
   try {
-    const { status } = req.body;
-    if (!status) {
-      throw new Error('Status undefinded');
+    const { clear } = req.body;
+    if (clear !== 'true') {
+      throw new Error('Invalid clear');
     }
     const response = await ProductsDao.deleteAll();
     res.json(response);
   } catch (error) {
-    res.json(CrudMessages.error(error));
+    res.json(CrudMessages.error(error.message));
   }
 }
 
