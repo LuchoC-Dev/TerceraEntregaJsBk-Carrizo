@@ -4,3 +4,4 @@ export const DB_USER_NAME = 'test';
 export const DB_USER_PASSWORD = 'ThisIsANewTest';
 export const DB_NAME = 'proyectoNode';
 export const DB_URL = `mongodb+srv://${DB_USER_NAME}:${DB_USER_PASSWORD}@coderhouse-jsback.h9u1po1.mongodb.net/`;
+export const SESSION_SECRET = 'coder1';
