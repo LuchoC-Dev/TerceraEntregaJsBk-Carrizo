@@ -14,6 +14,8 @@ function checkParams(req, res, next) {
     next();
     return;
   } catch (error) {
+    console.error('checkParams Error');
+
     res.json(Errors.json(error));
   }
 }

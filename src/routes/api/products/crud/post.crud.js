@@ -3,8 +3,8 @@ import CrudMessages from '../CrudMessages.js';
 
 async function add(req, res) {
   try {
-    const { data } = req.body;
-    const response = await ProductsDao.create(data);
+    const { title, description, price, thumbnail, code, stock, category } = req.body;
+    const response = await ProductsDao.create({ title, description, price, thumbnail, code, stock, category });
     res.json(CrudMessages.make(response));
   } catch (error) {
     res.json(CrudMessages.error(error));

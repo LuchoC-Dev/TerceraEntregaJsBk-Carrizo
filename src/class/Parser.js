@@ -26,6 +26,9 @@ class Parser {
     }
 
     function parseQuery(query) {
+      if (typeof query === 'object') {
+        return query;
+      }
       return JSON.parse(query);
     }
   }

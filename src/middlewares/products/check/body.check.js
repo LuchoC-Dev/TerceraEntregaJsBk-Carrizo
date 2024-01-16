@@ -17,6 +17,8 @@ function checkBody(req, res, next) {
     next();
     return;
   } catch (error) {
+    console.error('checkBody Error');
+
     res.json(Errors.json(error));
   }
 }
@@ -59,12 +61,7 @@ function checkPrice(price) {
   if (!price) {
     return true;
   }
-  return isIntNatural(price);
-}
-
-function isIntNatural(string) {
-  const regNaturalNumber = /^(0|[1-9]\d*)$/;
-  return regNaturalNumber.test(string);
+  return !isNaN(price);
 }
 
 function checkThumbnail(thumbnail) {
@@ -72,8 +69,7 @@ function checkThumbnail(thumbnail) {
     return true;
   }
   try {
-    const links = JSON.parse(thumbnail);
-    return Array.isArray(links);
+    return Array.isArray(thumbnail);
   } catch (error) {
     return false;
   }
@@ -92,6 +88,11 @@ function checkStock(stock) {
     return true;
   }
   return isIntNatural(stock);
+}
+
+function isIntNatural(string) {
+  const regNaturalNumber = /^(0|[1-9]\d*)$/;
+  return regNaturalNumber.test(string);
 }
 
 function checkCategory(category) {

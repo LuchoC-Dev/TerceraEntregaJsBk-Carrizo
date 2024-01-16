@@ -16,6 +16,7 @@ function checkQuery(req, res, next) {
     next();
     return;
   } catch (error) {
+    console.error('checkQuery Error');
     res.json(Errors.json(error));
   }
 }

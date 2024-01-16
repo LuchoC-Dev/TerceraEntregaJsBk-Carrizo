@@ -1,5 +1,6 @@
 import Parser from '../../../../class/Parser.js';
 import ProductsDao from '../../../../daos/ProductsDao.js';
+import { APP_URL } from '../../../../utils/env.js';
 import CrudMessages from '../CrudMessages.js';
 
 async function getAll(req, res) {
@@ -23,10 +24,23 @@ async function getById(req, res) {
 
 async function getByConditions(req, res) {
   try {
-    const { limit, page, sort, query } = Parser.parseQuery(req.query);
-    const response = await ProductsDao.readWithPaginate(query, { limit: limit, page: page, sort: sort });
+    const { limit, page, sort, query } = req.query;
+    const { limit: limitParsed, page: pageParsed, sort: sortParsed, query: queryParsed } = Parser.parseQuery(req.query);
+    const response = await ProductsDao.readWithPaginate(queryParsed, {
+      limit: limitParsed,
+      page: pageParsed,
+      sort: { price: sortParsed },
+    });
 
-    res.json(CrudMessages.make(response));
+    let nextLink;
+    let prevLink;
+    if (response.hasPrevPage) {
+      prevLink = `${APP_URL}${'/api/products/'}?limit=${limit}&sort=${sort}&query=${query}&page=${pageParsed - 1}`;
+    }
+    if (response.hasNextPage) {
+      nextLink = `${APP_URL}${'/api/products/'}?limit=${limit}&sort=${sort}&query=${query}&page=${pageParsed + 1}`;
+    }
+    res.json(CrudMessages.make({ status: 'success', nextLink: nextLink, prevLink: prevLink, ...response }));
   } catch (error) {
     res.json(CrudMessages.error(error));
   }
