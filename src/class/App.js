@@ -14,6 +14,7 @@ import cartRouter from '../routes/api/carts/carts.routes.js';
 import registerRouter from '../routes/register/register.routes.js';
 import loginRouter from '../routes/login/login.routes.js';
 import rootRouter from '../routes/root/root.routes.js';
+import productsViewRouter from '../routes/products/products.routes.js';
 
 class App {
   constructor() {
@@ -42,6 +43,7 @@ class App {
     this.app.use('/', cartRouter);
     this.app.use('/', loginRouter);
     this.app.use('/', registerRouter);
+    this.app.use('/', productsViewRouter);
   }
 
   _middlewaresInit() {
