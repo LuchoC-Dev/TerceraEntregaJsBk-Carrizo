@@ -1,4 +1,5 @@
 import ProductsDao from '../../../../daos/ProductsDao.js';
+import CrudMessages from '../CrudMessages.js';
 
 async function update(req, res) {
   try {
@@ -7,7 +8,7 @@ async function update(req, res) {
     const response = await ProductsDao.updateOne({ _id: id }, data);
     res.json(CrudMessages.make(response));
   } catch (error) {
-    res.json(CrudMessages.error(response));
+    res.json(CrudMessages.error(error));
   }
 }
 

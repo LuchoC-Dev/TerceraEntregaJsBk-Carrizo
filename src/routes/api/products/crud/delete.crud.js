@@ -1,4 +1,5 @@
 import ProductsDao from '../../../../daos/ProductsDao.js';
+import CrudMessages from '../CrudMessages.js';
 
 async function deleteById(req, res) {
   try {
@@ -7,7 +8,7 @@ async function deleteById(req, res) {
     const response = await ProductsDao.delete({ _id: id }, data);
     res.json(CrudMessages.make(response));
   } catch (error) {
-    res.json(CrudMessages.error(response));
+    res.json(CrudMessages.error(error));
   }
 }
 
@@ -20,7 +21,7 @@ async function deleteAll(req, res) {
     const response = await ProductsDao.deleteAll();
     res.json(CrudMessages.make(response));
   } catch (error) {
-    res.json(CrudMessages.error(response));
+    res.json(CrudMessages.error(error));
   }
 }
 

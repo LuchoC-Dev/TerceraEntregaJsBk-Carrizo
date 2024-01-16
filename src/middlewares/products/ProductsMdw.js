@@ -3,11 +3,11 @@ import checkParams from './check/params.check.js';
 import checkQuery from './check/query.check.js';
 
 class ProductsMdw {
-  static chechQuery(req, res, next) {
+  static checkQuery(req, res, next) {
     checkQuery(req, res, next);
   }
 
-  static chechParams(req, res, next) {
+  static checkParams(req, res, next) {
     checkParams(req, res, next);
   }
 

@@ -5,6 +5,7 @@ function checkBody(req, res, next) {
     const { title, description, price, thumbnail, code, stock, category } = req.body;
     if (!hasAnyPropertie(title, description, price, thumbnail, code, stock, category)) {
       next();
+      return;
     }
     const hasValidProperties = check(title, description, price, thumbnail, code, stock, category);
     if (!hasValidProperties) {
@@ -14,6 +15,7 @@ function checkBody(req, res, next) {
       req.body.isFull = true;
     }
     next();
+    return;
   } catch (error) {
     res.json(Errors.json(error));
   }

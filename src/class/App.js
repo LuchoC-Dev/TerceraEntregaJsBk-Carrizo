@@ -20,7 +20,6 @@ class App {
     await this._dbInit();
     this._socketsInit();
     this._routesInit();
-    this.app;
   }
 
   _listenInit() {

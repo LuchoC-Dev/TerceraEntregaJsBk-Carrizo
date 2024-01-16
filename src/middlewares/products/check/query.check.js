@@ -6,13 +6,15 @@ function checkQuery(req, res, next) {
     const hasCondition = limit || page || sort || query;
     if (!hasCondition) {
       next();
+      return;
     }
     const hasValidConditions = check(limit, page, sort, query);
     if (!hasValidConditions) {
       throw new Error('Invalid conditions');
     }
-    req.query.hasCondition = true;
+    req.query.hasCondition = hasCondition;
     next();
+    return;
   } catch (error) {
     res.json(Errors.json(error));
   }

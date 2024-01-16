@@ -5,12 +5,14 @@ function checkParams(req, res, next) {
     const { id } = req.params;
     if (!id) {
       next();
+      return;
     }
     const hasValidParams = check(id);
     if (!hasValidParams) {
       throw new Error('Invalid params');
     }
     next();
+    return;
   } catch (error) {
     res.json(Errors.json(error));
   }
