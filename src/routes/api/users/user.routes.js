@@ -33,6 +33,17 @@ usersRouter.post(path + 'login', async (req, res) => {
   res.json(req.session.user);
 });
 
+usersRouter.delete(path + 'logout', async (req, res) => {
+  try {
+    req.session.destroy();
+    res.json({ status: 'success' });
+  } catch (error) {
+    console.log(req.session);
+
+    res.status(401).json({ status: 'error' });
+  }
+});
+
 function isAdmin(email, password) {
   const regAdmin = /^admin/;
   return regAdmin.test(email) && regAdmin.test(password);
