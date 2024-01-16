@@ -11,6 +11,9 @@ import Sockets from './socket/Sockets.manager.js';
 import productsRouter from '../routes/api/products/products.routes.js';
 import { DB_URL, PORT, SESSION_SECRET } from '../utils/env.js';
 import cartRouter from '../routes/api/carts/carts.routes.js';
+import registerRouter from '../routes/register/register.routes.js';
+import loginRouter from '../routes/login/login.routes.js';
+import rootRouter from '../routes/root/root.routes.js';
 
 class App {
   constructor() {
@@ -34,8 +37,11 @@ class App {
   }
 
   _routesInit() {
+    this.app.use('/', rootRouter);
     this.app.use('/', productsRouter);
     this.app.use('/', cartRouter);
+    this.app.use('/', loginRouter);
+    this.app.use('/', registerRouter);
   }
 
   _middlewaresInit() {
